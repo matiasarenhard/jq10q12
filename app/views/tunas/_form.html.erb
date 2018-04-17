@@ -1,0 +1,27 @@
+<%= form_with(model: tuna, local: true) do |form| %>
+  <% if tuna.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tuna.errors.count, "error") %> prohibited this tuna from being saved:</h2>
+
+      <ul>
+      <% tuna.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :origin %>
+    <%= form.text_field :origin, id: :tuna_origin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Fish_id %>
+    <%= form.text_field :Fish_id, id: :tuna_Fish_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
