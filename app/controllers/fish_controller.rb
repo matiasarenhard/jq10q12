@@ -1,28 +1,20 @@
 class FishController < ApplicationController
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
 
-  # GET /fish
-  # GET /fish.json
   def index
     @fish = Fish.all
   end
 
-  # GET /fish/1
-  # GET /fish/1.json
   def show
   end
 
-  # GET /fish/new
   def new
     @fish = Fish.new
   end
 
-  # GET /fish/1/edit
   def edit
   end
 
-  # POST /fish
-  # POST /fish.json
   def create
     @fish = Fish.new(fish_params)
 
@@ -37,8 +29,6 @@ class FishController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fish/1
-  # PATCH/PUT /fish/1.json
   def update
     respond_to do |format|
       if @fish.update(fish_params)
@@ -51,8 +41,6 @@ class FishController < ApplicationController
     end
   end
 
-  # DELETE /fish/1
-  # DELETE /fish/1.json
   def destroy
     @fish.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class FishController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_fish
       @fish = Fish.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def fish_params
       params.require(:fish).permit(:name)
     end

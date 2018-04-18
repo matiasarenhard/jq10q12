@@ -1,28 +1,20 @@
 class SharksController < ApplicationController
   before_action :set_shark, only: [:show, :edit, :update, :destroy]
 
-  # GET /sharks
-  # GET /sharks.json
   def index
     @sharks = Shark.all
   end
 
-  # GET /sharks/1
-  # GET /sharks/1.json
   def show
   end
 
-  # GET /sharks/new
   def new
     @shark = Shark.new
   end
 
-  # GET /sharks/1/edit
   def edit
   end
 
-  # POST /sharks
-  # POST /sharks.json
   def create
     @shark = Shark.new(shark_params)
 
@@ -37,8 +29,6 @@ class SharksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sharks/1
-  # PATCH/PUT /sharks/1.json
   def update
     respond_to do |format|
       if @shark.update(shark_params)
@@ -51,8 +41,6 @@ class SharksController < ApplicationController
     end
   end
 
-  # DELETE /sharks/1
-  # DELETE /sharks/1.json
   def destroy
     @shark.destroy
     respond_to do |format|
@@ -62,13 +50,11 @@ class SharksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_shark
       @shark = Shark.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def shark_params
-      params.require(:shark).permit(:color, :Fish_id)
+      params.require(:shark).permit(:color, :fish_id)
     end
 end

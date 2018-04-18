@@ -20,6 +20,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'spring-commands-rspec'
   gem 'faker'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
