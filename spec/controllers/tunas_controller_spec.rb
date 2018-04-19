@@ -6,18 +6,6 @@ RSpec.describe TunasController, type: :controller do
   let(:invalid_attributes) { attributes_for(:tuna).merge(fish_id: nil) }
   let(:valid_session) { {} }
 
-  describe "FIND BY ORIGIN" do
-    it "find by origin correct" do
-      tuna = Tuna.find_by_origin(valid_attributes[:origin])
-      expect(tuna.count) == 1
-    end
-
-    it "find by origin don't correct" do
-      tuna = Tuna.find_by_origin("notOrigin")
-      expect(tuna.count) == 0 
-    end
-  end
-
   describe "GET #index" do
     it "returns a success response" do
       tuna = Tuna.create! valid_attributes

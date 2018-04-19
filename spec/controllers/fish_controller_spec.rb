@@ -2,22 +2,8 @@ require 'rails_helper'
 
 RSpec.describe FishController, type: :controller do
   let(:valid_attributes) { attributes_for(:fish) }
-  #let(:invalid_attributes) { attributes_for(:fish).merge(fish_id: "") }
+  let(:invalid_attributes) { attributes_for(:fish).merge(fish_id: "", name: "") }
   let(:valid_session) { {} }
-
-  describe "FIND" do
-    it "custom find correct" do
-      create(:fish)
-      fish = Fish.find_custom()
-      expect(fish.nil?).to be(false)
-    end
-
-    it "custom find don't correct" do
-      Fish.delete_all
-      fish = Fish.find_custom()
-      expect(fish.count) == 0
-    end
-  end
 
   describe "GET #index" do
     it "returns a success response" do
@@ -61,6 +47,13 @@ RSpec.describe FishController, type: :controller do
         expect(response).to redirect_to(Fish.last)
       end
     end
+
+    context "with invalid params" do
+      it "returns a success response (i.e. to display the 'new' template)" do
+        post :create, params: {fish: invalid_attributes}, session: valid_session
+        expect(response).to be_success
+      end
+    end
   end
 
   describe "PUT #update" do
@@ -80,6 +73,16 @@ RSpec.describe FishController, type: :controller do
         expect(response).to redirect_to(fish)
       end
     end
+
+    context "with invalid params" do
+      it "returns a success response (i.e. to display the 'edit' template)" do
+        fish = Fish.create! valid_attributes
+        put :update, params: {id: fish.to_param, fish: invalid_attributes}, session: valid_session
+        expect(response).to be_success
+      end
+    end
+
+
   end
 
   describe "DELETE #destroy" do

@@ -17,7 +17,6 @@ class FishController < ApplicationController
 
   def create
     @fish = Fish.new(fish_params)
-
     respond_to do |format|
       if @fish.save
         format.html { redirect_to @fish, notice: 'Fish was successfully created.' }

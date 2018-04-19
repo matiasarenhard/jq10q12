@@ -6,18 +6,6 @@ RSpec.describe SharksController, type: :controller do
   let(:invalid_attributes) { attributes_for(:shark).merge(fish_id: nil) }
   let(:valid_session) { {} }
 
-  describe "FIND BY COLOR" do
-    it "find by color correct" do
-      shark = Shark.find_by_color(valid_attributes[:color])
-      expect(shark.count) == 1
-    end
-
-    it "find by color don't correct" do
-      shark = Shark.find_by_color("notColor")
-      expect(shark.count) == 0 
-    end
-  end
-
   describe "GET #index" do
     it "returns a success response" do
       shark = Shark.create! valid_attributes
@@ -72,7 +60,7 @@ RSpec.describe SharksController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {{color: 'Changed'}}
-      
+
       it "updates the requested shark" do
         shark = Shark.create! valid_attributes
         put :update, params: {id: shark.to_param, shark: new_attributes}, session: valid_session
