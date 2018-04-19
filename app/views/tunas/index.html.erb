@@ -15,7 +15,7 @@
     <% @tunas.each do |tuna| %>
       <tr>
         <td><%= tuna.origin %></td>
-        <td><%= tuna.fish %></td>
+        <td><%= tuna.fish.name %></td>
         <td><%= link_to 'Show', tuna %></td>
         <td><%= link_to 'Edit', edit_tuna_path(tuna) %></td>
         <td><%= link_to 'Destroy', tuna, method: :delete, data: { confirm: 'Are you sure?' } %></td>

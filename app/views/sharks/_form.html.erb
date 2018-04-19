@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :fish_id %>
-    <%= form.text_field :fish_id, id: :shark_fish_id %>
+    <%= form.collection_select :fish_id, Fish.all, :id, :name, {} %>
+    
   </div>
 
   <div class="actions">

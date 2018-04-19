@@ -4,7 +4,7 @@ RSpec.describe "sharks/edit", type: :view do
   before(:each) do
     @shark = assign(:shark, Shark.create!(
       :color => "MyString",
-      :fish => nil
+      :fish => Fish.new
     ))
   end
 

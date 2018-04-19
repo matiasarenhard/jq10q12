@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :tuna do
-    origin "MyString"
-    fish nil
+    origin "OriginTest"
   end
 end
